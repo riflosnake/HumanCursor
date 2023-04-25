@@ -1,5 +1,7 @@
 # HumanCursor: A Python package for simulating human mouse movements
 
+<img src="https://user-images.githubusercontent.com/108073687/234356166-719efddc-4618-4d32-b40e-2055d17b3edd.jpg" width="350" height="275">
+
 HumanCursor is a Python package that allows you to simulate realistic human mouse movements on the web and the system. It can be used for automating scripts that require mouse interactions, such as web scraping, testing, or gaming.
 
 ## Features
