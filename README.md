@@ -23,7 +23,7 @@ To install, you can use pip:
 To use HumanCursor for Web, you need to import the `WebCursor` class, and create an instance:
 
 ```python
-from HumanCursor.cursors import WebCursor
+from humancursor import WebCursor
 
 cursor = WebCursor(driver)
 ```
@@ -50,7 +50,7 @@ Some parameters explained:
 To use HumanCursor for your system mouse, you need to import the `SystemCursor` class, and create an instance just like we did above:
 
 ```python
-from HumanCursor.cursors import SystemCursor
+from humancursor import SystemCursor
 
 cursor = SystemCursor()
 ```
