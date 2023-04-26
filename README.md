@@ -25,7 +25,7 @@ To use HumanCursor for Web, you need to import the `WebCursor` class, and create
 ```python
 from HumanCursor.cursors import WebCursor
 
-cursor = WebCursor()
+cursor = WebCursor(driver)
 ```
 
 Then, you can use the following methods to simulate mouse movements and actions:
