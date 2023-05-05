@@ -82,7 +82,17 @@ cursor.scroll_into_view_of_element(element)  # scrolls into view of element if n
 cursor.show_cursor()  # injects javascript that will display a red dot over the cursor on webpage. Should be called only for visual testing before script and not actual work.
 
 ```
+### DEMONSTRATION:
+To quickly check how the cursor moves, you can do this:
 
+```python
+from humancursor.test.system import start_sys_demo
+from humancursor.test.web import start_web_demo
+
+start_sys_demo() # to display a couple of mouse movements with system cursor
+
+start_web_demo() # to visualize how the mouse moves on webpage
+```
 
 ## License
 
