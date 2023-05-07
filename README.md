@@ -17,7 +17,7 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
 
 To install, you can use pip:
 
-    pip install HumanCursor
+    pip install humancursor
 
 ## Usage
 
