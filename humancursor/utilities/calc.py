@@ -66,7 +66,7 @@ def generate_random_curve_parameters(driver, pre_origin, post_destination):
                 [range(25, 35), range(35, 70), range(70, 90)], [0.53, 0.32, 0.15]
             )[0]
         )
-        print(target_points)
+    
     else:
         target_points = random.choice(
                 range(90, 110)
