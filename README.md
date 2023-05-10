@@ -62,7 +62,7 @@ from humancursor import SystemCursor
 cursor = SystemCursor()
 ```
 
-The `SystemCursor` class, which should be used for controlling the system mouse (with pyautogui), only inherits the `move_to()` and `click_on()` functions, accepting only the list of 'x' and 'y' coordinates as input, as there are no elements available.
+The `SystemCursor` class, which should be used for controlling the system mouse (with pyautogui), only inherits the `move_to()`, `click_on()` and `drag_and_drop` functions, accepting only the list of 'x' and 'y' coordinates as input, as there are no elements available.
 
 
 Some examples:
