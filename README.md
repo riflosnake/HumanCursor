@@ -51,9 +51,11 @@ Some parameters explained:
 
 
 ### SystemCursor
-
-<img src="https://media.giphy.com/media/rXk6HrdR7pAqmHTp9r/giphy.gif" width="45%" height="300">
-
+<div style="display:flex;flex-direction:row;">
+  <img src="https://media.giphy.com/media/U9Y3uFwjVlCzoB4HJX/giphy.gif" width="30%" height="280">
+  <img src="https://media.giphy.com/media/D7geMT10Eatk2X2DUF/giphy.gif" width="30%" height="280">
+  <img src="https://media.giphy.com/media/J3DyvU4raVEGvFiDjg/giphy.gif" width="30%" height="280">
+</div>
 To use HumanCursor for your system mouse, you need to import the `SystemCursor` class, and create an instance just like we did above:
 
 ```python
