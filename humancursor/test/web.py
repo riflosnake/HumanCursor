@@ -9,6 +9,7 @@ from humancursor.web_cursor import WebCursor
 
 def start_web_demo():
     # Disclaimer: This script is for demonstration purposes only and should not be used for any cheating activity.
+    print('Initializing Web Demo')
     driver = webdriver.Chrome()
     cursor = WebCursor(driver)
 
@@ -32,8 +33,9 @@ def start_web_demo():
 
         continue_button = driver.find_element(By.XPATH, '//button[text()="Continue"]')
         cursor.click_on(continue_button)
-        sleep(3)
+        sleep(2)
 
-    sleep(10)
+    sleep(5)
+    print('Web Demo ended')
     driver.quit()
     sys.exit()
