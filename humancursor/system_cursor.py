@@ -53,12 +53,14 @@ class SystemCursor:
             pyautogui.moveTo(pnt)
         pyautogui.moveTo(point)
 
-    def click_on(self, point: list, clicks: int = 1, steady=False):
+    def click_on(self, point: list, clicks: int = 1, click_duration: float = 0, steady=False):
         """Clicks a specified number of times, on the specified coordinates"""
         self.move_to(point, steady=steady)
         for _ in range(clicks):
-            pyautogui.click()
-            sleep(random.uniform(0.150, 0.300))
+            pyautogui.mouseDown()
+            sleep(click_duration)
+            pyautogui.mouseUp()
+            sleep(random.uniform(0.170, 0.280))
 
     def drag_and_drop(self, from_point: list, to_point: list, steady=False):
         """Drags from a certain point, and releases to another"""
