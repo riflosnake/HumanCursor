@@ -2,6 +2,7 @@ import random
 
 from selenium.common.exceptions import MoveTargetOutOfBoundsException
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver import Chrome, Edge, Firefox, Safari
 
 from humancursor.utilities.human_curve_generator import HumanizeMouseTrajectory
 from humancursor.utilities.calc import generate_random_curve_parameters, calculate_absolute_offset
@@ -10,7 +11,7 @@ from humancursor.utilities.calc import generate_random_curve_parameters, calcula
 class WebAdjuster:
     def __init__(self, driver):
         self.__driver = driver
-        self.__action = ActionChains(self.__driver, duration=0)
+        self.__action = ActionChains(self.__driver, duration=0 if not isinstance(driver, Firefox) else 1)
         self.origin_coordinate = [0, 0]
 
     def move_to(
