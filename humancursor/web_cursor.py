@@ -15,12 +15,12 @@ class WebCursor:
         self.origin_coordinates = [0, 0]
 
     def move_to(
-        self,
-        element: WebElement or list,
-        relative_position: list = None,
-        absolute_offset: bool = False,
-        origin_coordinates=None,
-        steady=False
+            self,
+            element: WebElement or list,
+            relative_position: list = None,
+            absolute_offset: bool = False,
+            origin_coordinates=None,
+            steady=False
     ):
         """Moves to element or coordinates with human curve"""
         if not self.scroll_into_view_of_element(element):
@@ -37,13 +37,14 @@ class WebCursor:
         return self.origin_coordinates
 
     def click_on(
-        self,
-        element: WebElement or list,
-        number_of_clicks: int = 1,
-        relative_position: list = None,
-        absolute_offset: bool = False,
-        origin_coordinates=None,
-        steady=False
+            self,
+            element: WebElement or list,
+            number_of_clicks: int = 1,
+            click_duration: float = 0,
+            relative_position: list = None,
+            absolute_offset: bool = False,
+            origin_coordinates=None,
+            steady=False
     ):
         """Moves to element or coordinates with human curve, and clicks on it a specified number of times, default is 1"""
         self.move_to(
@@ -53,13 +54,18 @@ class WebCursor:
             relative_position=relative_position,
             steady=steady
         )
-        self.click(number_of_clicks)
+        self.click(number_of_clicks=number_of_clicks, click_duration=click_duration)
         return True
 
-    def click(self, number_of_clicks=1):
+    def click(self, number_of_clicks: int=1, click_duration: float=0):
         """Performs the click action"""
+        if click_duration:
+            click_action = lambda: self.__action.click_and_hold().pause(click_duration).release().pause(
+                random.randint(170, 280) / 1000)
+        else:
+            click_action = lambda: self.__action.click().pause(random.randint(170, 280) / 1000)
         for _ in range(number_of_clicks):
-            self.__action.click().pause(random.randint(200, 300) / 1000)
+            click_action()
         self.__action.perform()
         return True
 
@@ -69,12 +75,12 @@ class WebCursor:
         return True
 
     def drag_and_drop(
-        self,
-        drag_from_element: WebElement or list,
-        drag_to_element: WebElement or list,
-        drag_from_relative_position: list = None,
-        drag_to_relative_position: list = None,
-        steady=False
+            self,
+            drag_from_element: WebElement or list,
+            drag_to_element: WebElement or list,
+            drag_from_relative_position: list = None,
+            drag_to_relative_position: list = None,
+            steady=False
     ):
         """Moves to element or coordinates, clicks and holds, dragging it to another element, with human curve"""
         if drag_from_relative_position is None:
@@ -99,11 +105,11 @@ class WebCursor:
         return True
 
     def control_scroll_bar(
-        self,
-        scroll_bar_element: WebElement,
-        amount_by_percentage: list,
-        orientation: str = "horizontal",
-        steady=False
+            self,
+            scroll_bar_element: WebElement,
+            amount_by_percentage: list,
+            orientation: str = "horizontal",
+            steady=False
     ):
         """Adjusts any scroll bar on the webpage, by the amount you want in float number from 0 to 1
         representing percentage of fullness, orientation of the scroll bar must also be defined by user
@@ -167,7 +173,7 @@ class WebCursor:
               // Get the cursor position
               const x = event.clientX;
               const y = event.clientY;
-            
+
               if (!dot) {
                 // Create a new div element for the red dot if it doesn't exist
                 dot = document.createElement("div");
@@ -180,11 +186,11 @@ class WebCursor:
                 // Add the dot to the page
                 document.body.appendChild(dot);
               }
-            
+
               // Update the dot's position
               dot.style.left = x + "px";
               dot.style.top = y + "px";
             }
-            
+
             // Add event listener to update the dot's position on mousemove
             document.addEventListener("mousemove", displayRedDot);''')
