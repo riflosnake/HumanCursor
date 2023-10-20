@@ -163,7 +163,7 @@ class WebCursor:
     def show_cursor(self):
         self.__driver.execute_script('''
         let dot;
-            function displayRedDot() {
+            function displayRedDot(event) {
               // Get the cursor position
               const x = event.clientX;
               const y = event.clientY;
