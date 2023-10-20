@@ -21,6 +21,7 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
 - HumanCursor uses a natural motion algorithm that mimics the way humans move the mouse cursor, with variable speed, acceleration, and curvature.
 - HumanCursor can perform various mouse actions, such as clicking, dragging, scrolling, and hovering.
 - HumanCursor is designed specifically to bypass security measures and bot detection software.
+- Fully supported for Chrome and Edge, not optimal/tested for Firefox and Safari
 
 ## Installation
 
@@ -76,7 +77,19 @@ cursor = SystemCursor()
 The `SystemCursor` class, which should be used for controlling the system mouse (with pyautogui), only inherits the `move_to()`, `click_on()` and `drag_and_drop` functions, accepting only the list of 'x' and 'y' coordinates as input, as there are no elements available.
 
 
-Some examples:
+### DEMONSTRATION:
+To quickly check how the cursor moves, you can do this:
+
+```python
+from humancursor.test.system import start_sys_demo
+from humancursor.test.web import start_web_demo
+
+start_sys_demo() # to display a couple of mouse movements with system cursor
+
+start_web_demo() # to visualize how the mouse moves on webpage
+```
+
+Some code examples:
 
 ```python
 cursor.move_to(element)  # moves to element 
@@ -89,6 +102,7 @@ cursor.move_by_offset(-10, -20)  # moves 10 pixels to the left and 20 pixels up
 
 cursor.click_on([170, 390])  # clicks on coordinates relative to viewport x: 170, y: 390
 cursor.click_on(element, relative_position=[0.2, 0.5])  # clicks on 0.2 x width, 0.5 x height position of the element.
+cursor.click_on(element, click_duration=1.7) # clicks and holds on element for 1.7 seconds
 
 cursor.drag_and_drop(element1, element2)  # clicks and hold on first element, and moves to and releases on the second
 cursor.drag_and_drop(element, [640, 320], drag_from_relative_position=[0.9, 0.9])  # drags from element on 0.9 x width, 0.9 x  height (far bottom right corner) and moves to and releases to coordinates relative to viewport x: 640, y: 320
@@ -99,17 +113,6 @@ cursor.controll_scroll_bar(element, amount_by_percentage=0.2, orientation='verti
 cursor.scroll_into_view_of_element(element)  # scrolls into view of element if not already in it
 cursor.show_cursor()  # injects javascript that will display a red dot over the cursor on webpage. Should be called only for visual testing before script and not actual work.
 
-```
-### DEMONSTRATION:
-To quickly check how the cursor moves, you can do this:
-
-```python
-from humancursor.test.system import start_sys_demo
-from humancursor.test.web import start_web_demo
-
-start_sys_demo() # to display a couple of mouse movements with system cursor
-
-start_web_demo() # to visualize how the mouse moves on webpage
 ```
 
 ## License
