@@ -54,7 +54,7 @@ These functions can accept as destination, either the `WebElement` itself, or a 
 
 Some parameters explained:
 
-- `relative_position`: Takes a list of x and y percentages as floats from 0 to 1, which indicate the exact position inside an element
+- `relative_position`: Takes a list of x and y percentages as floats from 0 to 1, which indicate the exact position by width and height inside an element
                                        for example, if you set it to [0.5, 0.5], it will move the cursor to the center of the element.
 - `absolute_offset`: If you input a list of coordinates instead of webelement, if you turn this to True, the coordinates will be interpreted as absolute movement by pixels, and not like coordinates in the webpage.
 - `steady`: Tries to make movement in straight line, mimicking human, if set to True
