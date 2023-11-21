@@ -7,7 +7,7 @@
 
 HumanCursor is a Python package that allows you to simulate realistic human mouse movements on the web and the system. It can be used for automating scripts that require mouse interactions, such as web scraping, testing, or gaming.
 
-## Contents:
+## Content:
 
 - [Features](#features)
 - [How to install](#installation)
@@ -50,7 +50,7 @@ Then, you can use the following methods to simulate mouse movements and actions:
 - `cursor.control_scroll_bar()`: Sets the scroll bar to a certain level, can be a volume, playback slider or anything. Level is set by float number from 0 to 1, meaning fullness
 - `cursor.scroll_into_view_of_element()`: Scrolls into view of element if not already there, it is called automatically from above functions.
 
-These functions can accept as destination, either the WebElement itself, or a list of 'x' and 'y' coordinates.
+These functions can accept as destination, either the `WebElement` itself, or a `list of 'x' and 'y' coordinates`.
 
 Some parameters explained:
 
