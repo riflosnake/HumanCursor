@@ -18,10 +18,10 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
 
 ## Features
 
-- HumanCursor uses a natural motion algorithm that mimics the way humans move the mouse cursor, with variable speed, acceleration, and curvature.
-- HumanCursor can perform various mouse actions, such as clicking, dragging, scrolling, and hovering.
-- HumanCursor is designed specifically to bypass security measures and bot detection software.
-- Fully supported for Chrome and Edge, not optimal/tested for Firefox and Safari
+- HumanCursor uses a `natural motion algorithm` that mimics the way `humans` move the mouse cursor, with `variable speed`, `acceleration`, and `curvature`.
+- HumanCursor can perform various mouse actions, such as `clicking`, `dragging`, `scrolling`, and `hovering`.
+- HumanCursor is designed specifically to `bypass security measures and bot detection software`.
+- Fully supported for `Chrome` and `Edge`, not optimal/tested for Firefox and Safari, using `Selenium`.
 
 ## Installation
 
