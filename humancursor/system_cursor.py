@@ -13,7 +13,7 @@ class SystemCursor:
         pyautogui.PAUSE = 0
 
     @staticmethod
-    def move_to(point: list, duration: int = None, human_curve=None, steady=False):
+    def move_to(point: list, duration: float = None, human_curve=None, steady=False):
         """Moves to certain coordinates of screen"""
         from_point = pyautogui.position()
 
@@ -62,9 +62,16 @@ class SystemCursor:
             pyautogui.mouseUp()
             sleep(random.uniform(0.170, 0.280))
 
-    def drag_and_drop(self, from_point: list, to_point: list, steady=False):
+    def drag_and_drop(self, from_point: list, to_point: list, duration: float or [float, float] = None, steady=False):
         """Drags from a certain point, and releases to another"""
-        self.move_to(from_point)
+        if isinstance(duration, list):
+            first_duration, second_duration = duration
+        elif isinstance(duration, (float, int)):
+            first_duration = second_duration = duration / 2
+        else:
+            first_duration = second_duration = None
+
+        self.move_to(from_point, duration=first_duration)
         pyautogui.mouseDown()
-        self.move_to(to_point, steady=steady)
+        self.move_to(to_point, duration=second_duration, steady=steady)
         pyautogui.mouseUp()
