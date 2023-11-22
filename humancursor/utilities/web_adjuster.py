@@ -2,7 +2,7 @@ import random
 
 from selenium.common.exceptions import MoveTargetOutOfBoundsException
 from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver import Chrome, Edge, Firefox, Safari
+from selenium.webdriver import Firefox
 
 from humancursor.utilities.human_curve_generator import HumanizeMouseTrajectory
 from humancursor.utilities.calc import generate_random_curve_parameters, calculate_absolute_offset
