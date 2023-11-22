@@ -17,13 +17,13 @@ def start_web_demo():
     driver.maximize_window()
     cursor.show_cursor()
 
-    sleep(2)
+    sleep(1.5)
 
     start_button = driver.find_element(By.XPATH, '//button[text()="Start Test"]')
 
     cursor.click_on(start_button)
 
-    sleep(2)
+    sleep(1.2)
 
     for attempt in range(5):
         blocks = driver.find_elements(By.XPATH, '//div[@data-cellnumber]')
@@ -33,9 +33,9 @@ def start_web_demo():
 
         continue_button = driver.find_element(By.XPATH, '//button[text()="Continue"]')
         cursor.click_on(continue_button)
-        sleep(2)
+        sleep(1.2)
 
-    sleep(5)
+    sleep(3)
     print('Web Demo ended')
     driver.quit()
     sys.exit()
