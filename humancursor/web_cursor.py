@@ -10,7 +10,7 @@ from humancursor.utilities.web_adjuster import WebAdjuster
 class WebCursor:
     def __init__(self, driver):
         self.__driver = driver
-        self.__action = ActionChains(self.__driver, duration=1500)
+        self.__action = ActionChains(self.__driver, duration=0)
         self.human = WebAdjuster(self.__driver)
         self.origin_coordinates = [0, 0]
 
@@ -57,7 +57,7 @@ class WebCursor:
         self.click(number_of_clicks=number_of_clicks, click_duration=click_duration)
         return True
 
-    def click(self, number_of_clicks: int=1, click_duration: float=0):
+    def click(self, number_of_clicks: int = 1, click_duration: float = 0):
         """Performs the click action"""
         if click_duration:
             click_action = lambda: self.__action.click_and_hold().pause(click_duration).release().pause(
