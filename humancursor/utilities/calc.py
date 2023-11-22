@@ -1,3 +1,5 @@
+import math
+
 from selenium.webdriver import Chrome, Edge, Firefox, Safari
 import pytweening
 import random
@@ -67,9 +69,7 @@ def generate_random_curve_parameters(driver, pre_origin, post_destination):
             )[0]
         )
     else:
-        target_points = random.choice(
-                range(90, 110)
-        )
+        target_points = int(math.sqrt((pre_origin[0] - post_destination[0]) ** 2 + (pre_origin[1] - post_destination[1]) ** 2))
 
     if (
             min_width > pre_origin[0]
