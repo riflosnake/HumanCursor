@@ -13,7 +13,7 @@ class SystemCursor:
         pyautogui.PAUSE = 0
 
     @staticmethod
-    def move_to(point: list, duration: float = None, human_curve=None, steady=False):
+    def move_to(point: list or tuple, duration: int or float = None, human_curve=None, steady=False):
         """Moves to certain coordinates of screen"""
         from_point = pyautogui.position()
 
@@ -53,7 +53,7 @@ class SystemCursor:
             pyautogui.moveTo(pnt)
         pyautogui.moveTo(point)
 
-    def click_on(self, point: list, clicks: int = 1, click_duration: float = 0, steady=False):
+    def click_on(self, point: list or tuple, clicks: int = 1, click_duration: int or float = 0, steady=False):
         """Clicks a specified number of times, on the specified coordinates"""
         self.move_to(point, steady=steady)
         for _ in range(clicks):
@@ -62,9 +62,9 @@ class SystemCursor:
             pyautogui.mouseUp()
             sleep(random.uniform(0.170, 0.280))
 
-    def drag_and_drop(self, from_point: list, to_point: list, duration: float or [float, float] = None, steady=False):
+    def drag_and_drop(self, from_point: list or tuple, to_point: list or tuple, duration: int or float or [float, float] or (float, float) = None, steady=False):
         """Drags from a certain point, and releases to another"""
-        if isinstance(duration, list):
+        if isinstance(duration, (list, tuple)):
             first_duration, second_duration = duration
         elif isinstance(duration, (float, int)):
             first_duration = second_duration = duration / 2

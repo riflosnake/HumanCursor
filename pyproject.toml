@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "HumanCursor"
+version = "1.1.4"
+authors = [
+  { name="Flori Batusha", email="floribatusha0@gmail.com" },
+]
+description = "Simulate Human Cursor Movement for Automated Scripts"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    "selenium >= 4.9.0",
+    "pyautogui >= 0.9.53",
+    "numpy >= 1.24.3"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/riflosnake/HumanCursor"
