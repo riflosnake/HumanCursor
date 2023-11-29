@@ -12,6 +12,7 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
 - [Features](#features)
 - [How to install](#installation)
 - [How to use](#usage)
+  - [HCScripter](#hcscripter)
   - [WebCursor](#webcursor)
   - [SystemCursor](#systemcursor)
 - [Demonstration](#demonstration)
@@ -27,9 +28,33 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
 
 To install, you can use pip:
 
-    pip install humancursor
+    pip install --upgrade humancursor
 
 ## Usage
+
+### HCScripter
+
+To quickly create a automated script, you can use HCScripter, HumanCursor combined with GUI, for a faster and easier job.
+
+After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` inside `humancursor` package. _(Linux/Mac users can figure it out themselves)_:
+
+```bash
+& py "$((pip show humancursor | Select-String 'Location').ToString().Substring(10))\humancursor\HCS_files\script_constructor.py"
+```
+
+A window will show up looking like this:
+
+<img width="270" alt="Screenshot 2023-11-29 165810" src="https://github.com/riflosnake/HumanCursor/assets/108073687/bc162443-1390-44fd-9dd9-69a8e0a9953b">
+
+Firstly, you can specify the `name` of the python file which will contain the script and choose the `location` where that file should be saved.
+
+Then, you can turn on movement listener by pressing the `ON/OFF` button, where it will start registering your movements, by these commands below:
+
+- Press `Z` -> `Move`
+- Press `CTRL` -> `Click`
+- Press and hold `CTRL` -> `Drag and drop`
+
+After completing your script, press `Finish` button and the script file .py should be ready to go!
 
 ### WebCursor
 
