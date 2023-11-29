@@ -34,7 +34,7 @@ To install, you can use pip:
 
 ### HCScripter
 
-To quickly create a automated script, you can use HCScripter, HumanCursor combined with GUI, for a faster and easier job.
+To quickly create an automated system script, you can use `HCScripter`, `SystemCursor` combined with `GUI`, for a faster and easier job.
 
 After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` inside `humancursor` package. _(Linux/Mac users can figure it out themselves)_:
 
