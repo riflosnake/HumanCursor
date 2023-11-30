@@ -5,9 +5,9 @@
   <img src="https://media.giphy.com/media/D2D9BfjscHEG1DzBKu/giphy.gif" width="45%" height="300">
 </div>
 
-HumanCursor is a Python package that allows you to simulate realistic human mouse movements on the web and the system. It can be used for automating scripts that require mouse interactions, such as web scraping, testing, or gaming.
+_**HumanCursor**_ is a Python package that allows you to _**simulate realistic human mouse movements**_ on the web and the system. It can be used for _**automating scripts**_ that require mouse interactions, such as _**web scraping**_, _**automated tasks**_, _**testing**_, or _**gaming**_.
 
-## Content:
+# Content:
 
 - [Features](#features)
 - [Requirements](#requirements)
@@ -18,41 +18,45 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
   - [SystemCursor](#systemcursor)
 - [Demonstration](#demonstration)
 
-## Features
+# Features
 
 - HumanCursor uses a `natural motion algorithm` that mimics the way `humans` move the mouse cursor, with `variable speed`, `acceleration`, and `curvature`.
-- HumanCursor can perform various mouse actions, such as `clicking`, `dragging`, `scrolling`, and `hovering`.
-- HumanCursor is designed specifically to `bypass security measures and bot detection software`.
-- Fully supported for `Chrome` and `Edge`, not optimal/tested for Firefox and Safari, using `Selenium`.
+- Can perform various mouse actions, such as `clicking`, `dragging`, `scrolling`, and `hovering`.
+- Designed specifically to `bypass security measures and bot detection software`.
+- Includes:
+    - 🚀 `HCScripter` app to create physical cursor automated scripts without coding.
+    - 🌐 `WebCursor` module for web cursor code automation.
+        - Fully supported for `Chrome` and `Edge`, not optimal/tested for Firefox and Safari, using `Selenium`.
+    - 🤖 `SystemCursor` module for physical cursor code automation.
+    
 
-
-## Requirements
+# Requirements
 
 - ```Python 3.x```
   - [Download the installer](https://www.python.org/downloads/), run it and follow the steps.
   - Make sure to check the box that says `Add Python to PATH` during installation.
   - Reboot computer.
 
-## Installation
+# Installation
 
 To install, you can use pip:
 
     pip install --upgrade humancursor
 
-## Usage
+# Usage
 
-### HCScripter
+## HCScripter
 
 To quickly create an automated system script, you can use `HCScripter`, `SystemCursor` combined with `GUI`, for a faster and easier job.
 
 After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` inside `humancursor` package:
 
-### Windows
+#### Windows
 ```bash
 & py "$((pip show humancursor | Select-String 'Location').ToString().Substring(10))\humancursor\HCS_files\script_constructor.py"
 ```
 
-### Linux
+#### Unix
 ```bash
 python3 "$(pip show humancursor | grep 'Location' | awk '{print $2}')/humancursor/HCS_files/script_constructor.py"
 ```
@@ -71,7 +75,7 @@ Then, you can turn on movement listener by pressing the `ON/OFF` button, where i
 
 After completing your script, press `Finish` button and the script file .py should be ready to go!
 
-### WebCursor
+## WebCursor
 
 To use HumanCursor for Web, you need to import the `WebCursor` class, and create an instance:
 
@@ -100,7 +104,7 @@ Some parameters explained:
 - `steady`: Tries to make movement in straight line, mimicking human, if set to True
 
 
-### SystemCursor
+## SystemCursor
 <div style="display:flex;flex-direction:row;">
   <img src="https://media.giphy.com/media/U9Y3uFwjVlCzoB4HJX/giphy.gif" width="30%" height="280">
   <img src="https://media.giphy.com/media/D7geMT10Eatk2X2DUF/giphy.gif" width="30%" height="280">
@@ -117,7 +121,7 @@ cursor = SystemCursor()
 The `SystemCursor` class, which should be used for controlling the system mouse (with pyautogui), only inherits the `move_to()`, `click_on()` and `drag_and_drop` functions, accepting only the list of 'x' and 'y' coordinates as input, as there are no elements available.
 
 
-### DEMONSTRATION:
+# DEMONSTRATION:
 To quickly check how the cursor moves, you can do this:
 
 ```python
@@ -129,7 +133,7 @@ start_sys_demo() # to display a couple of mouse movements with system cursor
 start_web_demo() # to visualize how the mouse moves on webpage
 ```
 
-Some code examples:
+#### Some code examples:
 
 ```python
 cursor.move_to(element)  # moves to element 
@@ -155,6 +159,6 @@ cursor.show_cursor()  # injects javascript that will display a red dot over the 
 
 ```
 
-## License
+# License
 
 HumanCursor is licensed under the MIT License. See LICENSE for more information.
