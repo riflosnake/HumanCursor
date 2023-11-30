@@ -10,6 +10,7 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
 ## Content:
 
 - [Features](#features)
+- [Requirements](#requirements)
 - [How to install](#installation)
 - [How to use](#usage)
   - [HCScripter](#hcscripter)
@@ -24,6 +25,14 @@ HumanCursor is a Python package that allows you to simulate realistic human mous
 - HumanCursor is designed specifically to `bypass security measures and bot detection software`.
 - Fully supported for `Chrome` and `Edge`, not optimal/tested for Firefox and Safari, using `Selenium`.
 
+
+## Requirements
+
+- ```Python 3.x```
+  - [Download the installer](https://www.python.org/downloads/), run it and follow the steps.
+  - Make sure to check the box that says `Add Python to PATH` during installation.
+  - Reboot computer.
+
 ## Installation
 
 To install, you can use pip:
@@ -36,13 +45,19 @@ To install, you can use pip:
 
 To quickly create an automated system script, you can use `HCScripter`, `SystemCursor` combined with `GUI`, for a faster and easier job.
 
-After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` inside `humancursor` package. _(Linux/Mac users can figure it out themselves)_:
+After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` inside `humancursor` package:
 
+### Windows
 ```bash
 & py "$((pip show humancursor | Select-String 'Location').ToString().Substring(10))\humancursor\HCS_files\script_constructor.py"
 ```
 
-A window will show up looking like this:
+### Linux
+```bash
+python3 "$(pip show humancursor | grep 'Location' | awk '{print $2}')/humancursor/HCS_files/script_constructor.py"
+```
+
+#### A window will show up looking like this:
 
 <img width="270" alt="Screenshot 2023-11-29 165810" src="https://github.com/riflosnake/HumanCursor/assets/108073687/bc162443-1390-44fd-9dd9-69a8e0a9953b">
 
