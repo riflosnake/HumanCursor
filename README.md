@@ -49,16 +49,10 @@ To install, you can use pip:
 
 To quickly create an automated system script, you can use `HCScripter`, which registers mouse actions from point to point using key commands and creates a script file for you.
 
-After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` of `humancursor` package:
+After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `launch.py` file inside the folder named `HCScripter` of `humancursor` package:
 
-#### Windows
-```bash
-& py "$((pip show humancursor | Select-String 'Location').ToString().Substring(10))\humancursor\HCS_files\script_constructor.py"
-```
-
-#### Unix
-```bash
-python3 "$(pip show humancursor | grep 'Location' | awk '{print $2}')/humancursor/HCS_files/script_constructor.py"
+```powershell
+python -m humancursor.HCScripter.launch
 ```
 
 #### A window will show up looking like this:
@@ -124,14 +118,14 @@ The `SystemCursor` class, which should be used for controlling the system mouse 
 # DEMONSTRATION:
 To quickly check how the cursor moves, you can do this:
 
-```python
-from humancursor.test.system import start_sys_demo
-from humancursor.test.web import start_web_demo
-
-start_sys_demo() # to display a couple of mouse movements with system cursor
-
-start_web_demo() # to visualize how the mouse moves on webpage
-```
+#### SystemCursor
+  ```powershell
+    python -m humancursor.test.system
+  ```
+#### WebCursor
+  ```powershell
+    python -m humancursor.test.web
+  ```
 
 #### Some code examples:
 
