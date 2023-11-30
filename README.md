@@ -47,9 +47,9 @@ To install, you can use pip:
 
 ## HCScripter
 
-To quickly create an automated system script, you can use `HCScripter`, `SystemCursor` combined with `GUI`, for a faster and easier job.
+To quickly create an automated system script, you can use `HCScripter`, which registers mouse actions from point to point using key commands and creates a script file for you.
 
-After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` inside `humancursor` package:
+After installing `humancursor` package, open up `terminal/powershell` and just copy paste this command which runs `script_constructor.py` file inside the folder named `HCS_files` of `humancursor` package:
 
 #### Windows
 ```bash
