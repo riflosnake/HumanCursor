@@ -5,7 +5,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver import Firefox
 
 from humancursor.utilities.human_curve_generator import HumanizeMouseTrajectory
-from humancursor.utilities.calc import generate_random_curve_parameters, calculate_absolute_offset
+from humancursor.utilities.calculate_and_randomize import generate_random_curve_parameters, calculate_absolute_offset
 
 
 class WebAdjuster:
@@ -23,7 +23,7 @@ class WebAdjuster:
         human_curve=None,
         steady=False
     ):
-        """Moves the humancursor, trying to mimic human behaviour!"""
+        """Moves the cursor, trying to mimic human behaviour!"""
         origin = origin_coordinates
         if origin_coordinates is None:
             origin = self.origin_coordinate

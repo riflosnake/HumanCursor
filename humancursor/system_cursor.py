@@ -3,7 +3,7 @@ import random
 import pyautogui
 
 from humancursor.utilities.human_curve_generator import HumanizeMouseTrajectory
-from humancursor.utilities.calc import generate_random_curve_parameters
+from humancursor.utilities.calculate_and_randomize import generate_random_curve_parameters
 
 
 class SystemCursor:
