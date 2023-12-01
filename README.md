@@ -120,11 +120,11 @@ To quickly check how the cursor moves, you can do this:
 
 #### SystemCursor
   ```powershell
-    python -m humancursor.test.system
+  python -m humancursor.test.system
   ```
 #### WebCursor
   ```powershell
-    python -m humancursor.test.web
+  python -m humancursor.test.web
   ```
 
 #### Some code examples:
