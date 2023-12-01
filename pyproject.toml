@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "HumanCursor"
-version = "1.1.4"
+version = "1.1.5"
 authors = [
   { name="Flori Batusha", email="floribatusha0@gmail.com" },
 ]
