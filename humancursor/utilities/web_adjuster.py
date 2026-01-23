@@ -54,6 +54,12 @@ class WebAdjuster:
                 x_exact_off, y_exact_off = abs_exact_offset[0], abs_exact_offset[1]
                 x, y = destination["x"] + x_exact_off, destination["y"] + y_exact_off
 
+            iframe_location = self.get_current_frame_base_pos()
+            if iframe_location:
+                left, top = iframe_location['left'], iframe_location['top']
+                x += left
+                y += top
+
         (
             offset_boundary_x,
             offset_boundary_y,
@@ -127,3 +133,35 @@ class WebAdjuster:
         ]
 
         return [pre_origin[0] + total_offset[0], pre_origin[1] + total_offset[1]]
+
+    def get_current_frame_base_pos(self):
+        """
+        get current frame base position
+        :return: location of current frame
+        """
+        script = """
+            if (window.top === window) {
+                return null;
+            }
+            function getCumulativeIframeLocation() {
+                let currWindow = window;
+                let totalLeft = 0;
+                let totalTop = 0;
+                
+                // step by step calculation the iframe location
+                while (currWindow !== window.top) {
+                    const frameElement = currWindow.frameElement;
+                    currWindow = currWindow.parent;
+                    if (frameElement) {
+                        const rect = frameElement.getBoundingClientRect();
+                        totalLeft += rect.left;
+                        totalTop += rect.top;
+                    }
+                }
+                return { left: totalLeft, top: totalTop };
+            }
+            
+            return getCumulativeIframeLocation();
+        """
+
+        return self.__driver.execute_script(script)
