@@ -54,6 +54,12 @@ class WebAdjuster:
                 x_exact_off, y_exact_off = abs_exact_offset[0], abs_exact_offset[1]
                 x, y = destination["x"] + x_exact_off, destination["y"] + y_exact_off
 
+            iframe_location = self.get_current_frame_base_pos()
+            if iframe_location:
+                left, top = iframe_location['left'], iframe_location['top']
+                x += left
+                y += top
+
         (
             offset_boundary_x,
             offset_boundary_y,
@@ -127,3 +133,65 @@ class WebAdjuster:
         ]
 
         return [pre_origin[0] + total_offset[0], pre_origin[1] + total_offset[1]]
+
+    def get_current_frame_base_pos(self):
+        """
+        get current frame base position
+        :return: location of current frame
+        """
+        script = """
+            if (window.top === window) {
+                return null;
+            }
+            function getCumulativeIframeLocation() {
+                const currWindow = window;
+                let totalLeft = 0;
+                let totalTop = 0;
+                let firstRect = null;
+                
+                const iframes = window.top.document.getElementsByTagName('iframe');
+                while (currWindow !== window.top) {
+                    try {
+                        const parentWindow = currWindow.parent;
+                        let found = false;
+                        for (var i = 0; i < iframes.length; i++) {
+                            if (iframes[i].contentWindow === currWindow) {
+                                var rect = iframes[i].getBoundingClientRect();
+                                if (firstRect === null) {
+                                    firstRect = rect;
+                                }
+                                totalLeft += rect.left;
+                                totalTop += rect.top;
+                                currWindow = parentWindow;
+                                found = true;
+                                break;
+                            }
+                        }
+                        if (!found) break;
+                    } catch (e) {
+                        break;
+                    }
+                }
+                
+                if (firstRect === null) return null;
+                return {
+                    left: totalLeft,
+                    top: totalTop,
+                    x: totalLeft,
+                    y: totalTop,
+                    width: firstRect.width,
+                    height: firstRect.height,
+                    right: totalLeft + firstRect.width,
+                    bottom: totalTop + firstRect.height
+                };
+            }
+            
+            return getCumulativeIframeLocation();
+        """
+
+        # return json like this
+        """
+            {'bottom': 953, 'height': 913, 'left': 160, 'right': 1920,
+             'top': 40, 'width': 1760, 'x': 160, 'y': 40}
+        """
+        return self.__driver.execute_script(script)
