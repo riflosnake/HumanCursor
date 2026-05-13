@@ -1,3 +1,4 @@
+import logging
 from time import sleep
 import random
 
@@ -5,6 +6,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.remote.webelement import WebElement
 
 from humancursor.utilities.web_adjuster import WebAdjuster
+
+
+logger = logging.getLogger( "humancursor.web_cursor" )
 
 
 class WebCursor:
@@ -163,7 +167,7 @@ class WebCursor:
             """User should input correct coordinates of x and y, cant take any action"""
             return True
         else:
-            print("Incorrect Element or Coordinates values!")
+            logger.warning("Incorrect Element or Coordinates values!")
             return False
 
     def show_cursor(self):

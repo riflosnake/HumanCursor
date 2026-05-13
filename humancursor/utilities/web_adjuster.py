@@ -1,3 +1,4 @@
+import logging
 import random
 
 from selenium.common.exceptions import MoveTargetOutOfBoundsException
@@ -6,6 +7,9 @@ from selenium.webdriver import Firefox
 
 from humancursor.utilities.human_curve_generator import HumanizeMouseTrajectory
 from humancursor.utilities.calculate_and_randomize import generate_random_curve_parameters, calculate_absolute_offset
+
+
+logger = logging.getLogger( "humancursor.utilities.web_adjuster" )
 
 
 class WebAdjuster:
@@ -117,7 +121,7 @@ class WebAdjuster:
             self.__action.perform()
         except MoveTargetOutOfBoundsException:
             self.__action.move_to_element(element_or_pos)
-            print(
+            logger.error(
                 "MoveTargetOutOfBoundsException, Cursor Moved to Point, but without Human Trajectory!"
             )
 
